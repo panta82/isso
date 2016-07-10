@@ -27,3 +27,7 @@
 /docs/_static/css/site.css
 
 /pip-selfcheck.json
+
+.python-version
+.idea
+/run.sh
