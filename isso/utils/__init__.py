@@ -25,6 +25,10 @@ def anonymize(remote_addr):
     and /48 (zero'd).
 
     """
+
+    # Disabled by PANTA
+    return remote_addr
+
     try:
         ipv4 = ipaddress.IPv4Address(remote_addr)
         return u''.join(ipv4.exploded.rsplit('.', 1)[0]) + '.' + '0'

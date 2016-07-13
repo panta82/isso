@@ -1,6 +1,7 @@
 The following changes were made on branch panta-master:
 
 - Removed limitation to the number of likes/dislikes
+- Disabled anonimization (fixing the bloom filter bug)
 
 The rest of this document is the same as on isso master
 
