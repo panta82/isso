@@ -1,3 +1,11 @@
+The following changes were made on branch panta-master:
+
+- Removed limitation to the number of likes/dislikes
+
+The rest of this document is the same as on isso master
+
+--------------------------
+
 Isso – a commenting server similar to Disqus
 ============================================
 
