@@ -183,8 +183,10 @@ class Comments:
             return None
 
         likes, dislikes, voters = rv
-        if likes + dislikes >= 142:
-            return {'likes': likes, 'dislikes': dislikes}
+
+        # PANTA: Stupid
+        #if likes + dislikes >= 142:
+        #    return {'likes': likes, 'dislikes': dislikes}
 
         bf = Bloomfilter(bytearray(voters), likes + dislikes)
         if remote_addr in bf:
