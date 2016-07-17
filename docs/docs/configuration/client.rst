@@ -10,6 +10,7 @@ preferably in the script tag which embeds the JS:
             data-isso-css="true"
             data-isso-lang="ru"
             data-isso-reply-to-self="false"
+            data-isso-require-author="false"
             data-isso-require-email="false"
             data-isso-max-comments-top="10"
             data-isso-max-comments-nested="5"
@@ -63,6 +64,11 @@ data-isso-reply-to-self
 -----------------------
 
 Set to `true` when spam guard is configured with `reply-to-self = true`.
+
+data-isso-require-author
+------------------------
+
+Set to `true` when spam guard is configured with `require-author = true`.
 
 data-isso-require-email
 -----------------------
@@ -122,11 +128,10 @@ These classes can then be used to customize the appearance of comments (eg. put 
 data-isso-id
 ------------
 
-Broken – do not use. https://github.com/posativ/isso/issues/27
-
-Set a custom thread id, defaults to current URI. If you use a comment counter,
-add this attribute to the link tag, too.
+Set a custom thread id, defaults to current URI. This attribute needs
+to be used with the data-title attribute in order to work.
+If you use a comment counter, add this attribute to the link tag, too.
 
 .. code-block:: html
 
-    <section data-isso-id="test.abc" id="isso-thread"></section>
+    <section data-title="Yay!" data-isso-id="test.abc" id="isso-thread"></section>
