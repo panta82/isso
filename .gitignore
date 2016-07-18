@@ -31,3 +31,4 @@
 .python-version
 .idea
 /run.sh
+node_modules
