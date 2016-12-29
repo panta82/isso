@@ -181,7 +181,7 @@ class API(object):
 
         with self.isso.lock:
             if uri not in self.threads:
-                if 'title' not in data:
+                if 'title' not in data or data['title'] is None:
                     with http.curl('GET', local("origin"), uri) as resp:
                         if resp and resp.status == 200:
                             uri, title = parse.thread(resp.read(), id=uri)
