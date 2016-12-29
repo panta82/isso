@@ -132,10 +132,12 @@ class API(object):
         if len(comment["text"]) > 65535:
             return False, "text is too long (maximum length: 65535)"
 
-        if len(comment.get("email") or "") > 254:
+        email = comment.get("email") or ""
+
+        if len(email) > 254:
             return False, "http://tools.ietf.org/html/rfc5321#section-4.5.3"
 
-        if not user_mode and "@" not in (comment.get("email") or ""):
+        if not user_mode and len(email) > 0 and "@" not in email:
             return False, "Invalid email address (must contain @)"
 
         if comment.get("website"):
