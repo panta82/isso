@@ -4,6 +4,8 @@ define({
     "postbox-email": "E-mail (frivilligt)",
     "postbox-password": "Lösenord",
     "postbox-website": "Hemsida (frivilligt)",
+    "postbox-preview": "Förhandsvisning",
+    "postbox-edit": "Redigera",
     "postbox-submit": "Skicka",
     "num-comments": "En kommentar\n{{ n }} kommentarer",
     "no-comments": "Inga kommentarer än",

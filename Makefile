@@ -1,3 +1,5 @@
+# INSTALLATION: pip install sphinx && npm install --global node-sass
+
 ISSO_JS_SRC := $(shell find isso/js/app -type f) \
 	       $(shell ls isso/js/*.js | grep -vE "(min|dev)") \
 	       isso/js/lib/requirejs-jade/jade.js
@@ -34,9 +36,9 @@ init:
 
 check:
 	@echo "Python 2.x"
-	-@python2 -m pyflakes $(ISSO_PY_SRC)
+	@python2 -m pyflakes $(filter-out isso/compat.py,$(ISSO_PY_SRC))
 	@echo "Python 3.x"
-	-@python3 -m pyflakes $(ISSO_PY_SRC)
+	@python3 -m pyflakes $(filter-out isso/compat.py,$(ISSO_PY_SRC))
 
 isso/js/%.min.js: $(ISSO_JS_SRC) $(ISSO_CSS)
 	$(RJS) -o isso/js/build.$*.js out=$@
@@ -53,7 +55,7 @@ man: $(DOCS_RST_SRC)
 	mv man/isso.conf.5 man/man5/isso.conf.5
 
 ${DOCS_CSS_DST}: $(DOCS_CSS_SRC) $(DOCS_CSS_DEP)
-	scss --no-cache $(DOCS_CSS_SRC) $@
+	node-sass --no-cache $(DOCS_CSS_SRC) $@
 
 ${DOCS_HTML_DST}: $(DOCS_RST_SRC) $(DOCS_CSS_DST)
 	sphinx-build -b dirhtml docs/ $@

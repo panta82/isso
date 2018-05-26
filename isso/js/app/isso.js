@@ -39,7 +39,8 @@ define(["app/dom", "app/utils", "app/config", "app/api", "app/jade", "app/i18n",
             "author":  JSON.parse(localStorage.getItem("author")),
             "password":  JSON.parse(localStorage.getItem("password")),
             "email":   JSON.parse(localStorage.getItem("email")),
-            "website": JSON.parse(localStorage.getItem("website"))
+            "website": JSON.parse(localStorage.getItem("website")),
+            "preview": ''
         }));
 
         var inputs = {
@@ -48,9 +49,11 @@ define(["app/dom", "app/utils", "app/config", "app/api", "app/jade", "app/i18n",
             password: $("[name=password]", el),
             website: $("[name=website]", el),
             text: $(".textarea", el),
-            submit: $("[type=submit]", el)
+            submit: $("[type=submit]", el),
+            preview: $("[name='preview']", el),
+            edit: $("[name='edit']", el)
         };
-        
+
         inputs.author.on(['change', 'keyup'], update);
         inputs.email.on(['change', 'keyup'], update);
         inputs.password.on(['change', 'keyup'], update);
@@ -64,7 +67,8 @@ define(["app/dom", "app/utils", "app/config", "app/api", "app/jade", "app/i18n",
 
         // email is not optional if this config parameter is set
         if (config["require-email"]) {
-            inputs.email.placeholder = inputs.email.placeholder.replace(/ \(.*\)/, "");
+            inputs.email.placeholder.setAttribute("placeholder",
+                inputs.email.placeholder.getAttribute("placeholder").replace(/ \(.*\)/, ""));
         }
 
         // author is not optional if this config parameter is set
@@ -72,9 +76,27 @@ define(["app/dom", "app/utils", "app/config", "app/api", "app/jade", "app/i18n",
             inputs.author.placeholder = inputs.author.placeholder.replace(/ \(.*\)/, "");
         }
 
+        // preview function
+        inputs.preview.on("click", function() {
+            api.preview(utils.text($(".textarea", el).innerHTML)).then(
+                function(html) {
+                    $(".preview .text", el).innerHTML = html;
+                    el.classList.add('preview-mode');
+                });
+        });
+
+        // edit function
+        var edit = function() {
+            $(".preview .text", el).innerHTML = '';
+            el.classList.remove('preview-mode');
+        };
+        inputs.edit.on("click", edit);
+        $(".preview", el).on("click", edit);
+
         // submit form, initialize optional fields with `null` and reset form.
         // If replied to a comment, remove form completely.
         inputs.submit.on("click", function() {
+            edit();
             if (3 > Number(validateText(inputs.text, config)) +
                 Number(validateAuthor(inputs.author, config)) +
                 (passwordMode ? 1 : Number(validateEmail(inputs.email, config)))) {
@@ -105,7 +127,7 @@ define(["app/dom", "app/utils", "app/config", "app/api", "app/jade", "app/i18n",
                     inputs.text.innerHTML = "";
                     inputs.text.blur();
                     insert(comment, server, true);
-    
+
                     if (parent !== null) {
                         el.onsuccess();
                     }
@@ -291,7 +313,7 @@ define(["app/dom", "app/utils", "app/config", "app/api", "app/jade", "app/i18n",
         $("a.edit", footer).toggle("click",
             function(toggler) {
                 var edit = $("a.edit", footer);
-                var avatar = config["avatar"] ? $(".avatar", el, false)[0] : null;
+                var avatar = config["avatar"] || config["gravatar"] ? $(".avatar", el, false)[0] : null;
 
                 edit.textContent = i18n.translate("comment-save");
                 edit.insertAfter($.new("a.cancel", i18n.translate("comment-cancel"))).on("click", function() {
@@ -319,7 +341,7 @@ define(["app/dom", "app/utils", "app/config", "app/api", "app/jade", "app/i18n",
             },
             function(toggler) {
                 var textarea = $(".textarea", text);
-                var avatar = config["avatar"] ? $(".avatar", el, false)[0] : null;
+                var avatar = config["avatar"] || config["gravatar"] ? $(".avatar", el, false)[0] : null;
 
                 if (! toggler.canceled && textarea !== null) {
                     if (!validateText(textarea, config)) {

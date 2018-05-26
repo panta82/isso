@@ -4,6 +4,8 @@ define({
     "postbox-email": "E-mail (προαιρετικό)",
     "postbox-password": "Κωδικός πρόσβασης",
     "postbox-website": "Ιστοσελίδα (προαιρετικό)",
+    "postbox-preview": "Πρεμιέρα",
+    "postbox-edit": "Επεξεργασία",
     "postbox-submit": "Υποβολή",
     "num-comments": "Ένα σχόλιο\n{{ n }} σχόλια",
     "no-comments": "Δεν υπάρχουν σχόλια",

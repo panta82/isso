@@ -4,6 +4,8 @@ define({
     "postbox-email": "E-mail (opcjonalnie)",
     "postbox-password": "Hasło",
     "postbox-website": "Strona (opcjonalnie)",
+    "postbox-preview": "Visualizar",
+    "postbox-edit": "Edytuj",
     "postbox-submit": "Wyślij",
     "num-comments": "Jeden komentarz\n{{ n }} komentarzy",
     "no-comments": "Jeszcze nie ma komentarzy",

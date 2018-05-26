@@ -3,7 +3,7 @@
  * Distributed under the MIT license
  */
 
-require(["app/lib/ready", "app/config", "app/i18n", "app/api", "app/isso", "app/count", "app/dom", "app/text/css", "app/text/svg", "app/jade", "app/lib/promise"], function(domready, config, i18n, api, isso, count, $, css, svg, jade, Q) {
+require(["app/lib/ready", "app/config", "app/i18n", "app/api", "app/isso", "app/count", "app/dom", "app/text/css", "app/text/svg", "app/jade"], function(domready, config, i18n, api, isso, count, $, css, svg, jade) {
 
     "use strict";
 
@@ -33,6 +33,14 @@ require(["app/lib/ready", "app/config", "app/i18n", "app/api", "app/isso", "app/
         api.info().then(
             function (rv) {
                 server = rv;
+
+                if (config["feed"]) {
+					var feedLink = $.new('a', i18n.translate('atom-feed'));
+					var feedLinkWrapper = $.new('span.isso-feedlink');
+					feedLink.href = api.feed($("#isso-thread").getAttribute("data-isso-id"));
+					feedLinkWrapper.appendChild(feedLink);
+					$("#isso-thread").append(feedLinkWrapper);
+				}
 
                 $("#isso-thread").append($.new('h4'));
                 $("#isso-thread").append(new isso.Postbox(server, null));

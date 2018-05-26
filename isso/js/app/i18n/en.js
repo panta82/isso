@@ -4,10 +4,13 @@ define({
     "postbox-email": "E-mail (optional)",
     "postbox-password": "Password",
     "postbox-website": "Website (optional)",
+    "postbox-preview": "Preview",
+    "postbox-edit": "Edit",
     "postbox-submit": "Submit",
 
     "num-comments": "One Comment\n{{ n }} Comments",
     "no-comments": "No Comments Yet",
+    "atom-feed": "Atom feed",
 
     "comment-reply": "Reply",
     "comment-edit": "Edit",

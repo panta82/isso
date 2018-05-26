@@ -4,6 +4,8 @@ define({
     "postbox-email": "E-mail (tùy chọn)",
     "postbox-password": "Mật khẩu",
     "postbox-website": "Website (tùy chọn)",
+    "postbox-preview": "Xem trước",
+    "postbox-edit": "Sửa",
     "postbox-submit": "Gửi",
 
     "num-comments": "Một bình luận\n{{ n }} bình luận",

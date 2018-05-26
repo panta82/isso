@@ -4,6 +4,8 @@ define({
     "postbox-email": "E-mail (nepovinný)",
     "postbox-password": "Heslo",
     "postbox-website": "Web (nepovinný)",
+    "postbox-preview": "Náhled",
+    "postbox-edit": "Upravit",
     "postbox-submit": "Publikovat",
     "num-comments": "Jeden komentář\n{{ n }} Komentářů",
     "no-comments": "Zatím bez komentářů",
