@@ -5,8 +5,6 @@ The following changes were made on branch panta-master:
 - Removed limitation to the number of likes/dislikes
 - Disabled anonimization (fixing the bloom filter bug)
 
-The rest of this document is the same as on isso master
-
 #### Quick install reminder
 
 Create virtual env
@@ -27,6 +25,10 @@ In production
 python setup.py install
 # see in misc/deploy
 ```
+
+--------------------------
+
+The rest of this document is the same as on isso master
 
 --------------------------
 
