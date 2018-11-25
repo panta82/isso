@@ -121,5 +121,4 @@ ENV/
 .ropeproject
 
 .idea
-/run.sh
 node_modules
