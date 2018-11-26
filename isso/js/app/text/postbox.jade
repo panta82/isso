@@ -21,10 +21,10 @@ div(class='isso-postbox')
                 input(type='text' name='website' placeholder=i18n('postbox-website') title=i18n('postbox-website')
                       value=website != null ? '#{website}' : '')
             p(class='post-action')
-                input(type='submit' value=i18n('postbox-submit'))
-            p(class='post-action')
                 input(type='button' name='preview'
                       value=i18n('postbox-preview'))
             p(class='post-action')
                 input(type='button' name='edit'
                       value=i18n('postbox-edit'))
+            p(class='post-action')
+                input(type='submit' value=i18n('postbox-submit'))
