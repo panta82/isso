@@ -122,3 +122,5 @@ ENV/
 
 .idea
 node_modules
+isso.ini
+isso.db
