@@ -38,7 +38,6 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-.Python
 env/
 build/
 develop-eggs/
@@ -120,7 +119,7 @@ ENV/
 # Rope project settings
 .ropeproject
 
-.idea
-node_modules
+/.idea
+/node_modules
 isso.ini
 isso.db
