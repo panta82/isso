@@ -14,6 +14,11 @@ pipenv install
 pipenv shell
 ```
 
+Install node modules, unfortunately isso doesn't believe in package.json it seems
+```
+npm install requirejs bower
+```
+
 In development:
 ```
 python setup.py develop
