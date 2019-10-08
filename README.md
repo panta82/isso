@@ -7,10 +7,11 @@ The following changes were made on branch panta-master:
 
 #### Quick install reminder
 
-Create virtual env
+Create pipenv:
 ```
-# After installing 3.6.1 using pyenv
-pp-mk isso 3.6.1
+pyenv install 3.6.1
+pipenv install
+pipenv shell
 ```
 
 In development:
