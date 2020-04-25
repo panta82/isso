@@ -1,0 +1,28 @@
+{
+  "name": "isso",
+  "version": "1.0.0",
+  "description": "The following changes were made on branch panta-master:",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panta82/isso.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/panta82/isso/issues"
+  },
+  "homepage": "https://github.com/panta82/isso#readme",
+  "dependencies": {
+    "bower": "^1.8.8",
+    "jade": "^1.11.0",
+    "requirejs": "^2.3.6",
+    "uglify-js": "^3.9.1"
+  }
+}

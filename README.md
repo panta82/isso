@@ -14,9 +14,9 @@ pipenv install
 pipenv shell
 ```
 
-Install node modules, unfortunately isso doesn't believe in package.json it seems
+Install node modules:
 ```
-npm install requirejs bower
+npm install
 ```
 
 In development:
